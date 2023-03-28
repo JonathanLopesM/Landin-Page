@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnoTelemedicina - beneficiário</title>
+  <link href="../styles/styles.css" rel="stylesheet">
+  <script>
+    function formatInput(mask, doc) {
+      var i = doc.value.length;
+      console.log(i, 'i')
+      var exit = mask.substring(0,1);
+      console.log(exit, 'exit')
+      var text = mask.substring(i)
+      console.log(text, 'text')
+      if(text.substring(0, 1) != exit){
+        doc.value += text.substring(0,1)
+      }
+    }
+
+  </script>
+</head>
+<body class="flex flex-col w-full h-[900px] ">
+  <header class=" flex w-full justify-center border">
+    <div class="flex flex-col sm:flex-row w-full max-w-[90%] justify-center sm:justify-between h-[110px] sm:h-[150px] items-center overflow-hidden object-fill bg-cover">
+      <h1 class="text-gray-200 text-4xl"> <span class="text-[#63b5a3] font-bold">uno</span>telemedicina</h1>
+      <p class="flex gap-2 text-gray-600 ml-auto">
+        Nº do Pedido 
+        <span class="flex text-gray-700 font-bold">#281938292</span> 
+      </p>
+    </div>
+  </header>
+  <div class="flex sm:flex-col-reverse flex-col-reverse lg:flex-row w-full  max-h-[1100px]  font-light bg-[#7ec9b8] text-white sm:justify-between justify-center">
+    <div class="flex h-[500px] -mt-44 sm:mt-0  sm:h-[940px] sm:absolute sm:-ml-[380px] lg:-ml-[250px] 2xl:ml-0   lg:max-w-[60%]  ">
+      <img class="flex object-cover w-full" src="../assets/modelsPeaple/RecipientUnic.png" alt="">
+    </div>
+    <div class="flex flex-col relative z-30 mt-10 sm:mt-0 h-[900px] sm:h-[940px] sm:pt-32 sm:ml-auto w-full px-2  gap-8 text-start max-w-[360px] sm:max-w-[600px]  ">
+      
+      <h2 class="text-xl lg:text-[28px]">Preencha os dados do<span class=" text-xl font-semibold bg-[#AEDCD2] rounded-3xl px-2 lg:text-[28px]">beneficiário</span></h2>
+      
+      <form class="flex flex-col w-full gap-14 text-xl h-full" action=""><!-- Formulário Envio A Definir -->
+        <label for="name">
+          <input placeholder="Nome Completo" class="flex placeholder-white appearance-none focus:ring-0 bg-transparent border-b focus:outline-none w-full" 
+          type="text" name="name" id="" required>
+        </label>
+        <label for="cpf">
+          <input placeholder="CPF" maxlength="14" onkeypress="formatInput('###.###.###-##', this)"
+          class="flex placeholder-white appearance-none focus:ring-0 bg-transparent border-b focus:outline-none w-full" 
+          type="text" name="cpf" id="" required>
+        </label>
+        <label for="data">
+          <input placeholder="Data de Nascimento" maxlength="10" onkeypress="formatInput('##/##/####', this)"
+          class="flex placeholder-white appearance-none focus:ring-0 bg-transparent border-b focus:outline-none w-full" 
+          type="text" name="data" id="" required>
+        </label>
+        <label for="email">
+          <input placeholder="E-mail" pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+          class="flex placeholder-white appearance-none focus:ring-0 bg-transparent border-b focus:outline-none w-full" 
+          type="text" name="email" id="" required>
+        </label>
+        <label for="phone">
+          <input placeholder="Telefone" maxlength="14" onkeypress="formatInput('## # ####-####', this)" 
+          class="flex placeholder-white appearance-none focus:ring-0 bg-transparent border-b focus:outline-none w-full" 
+          type="text" name="phone" id="" required>
+        </label>
+          <button onclick="handleSubmit()" class="flex bg-[#186685] max-w-[200px] py-2 justify-center rounded-3xl  font-bold " >
+            Continuar
+          </button>
+      </form>
+
+    </div>
+  
+
+  </div>
+
+
+  <!-- Modal initially -->
+
+    <div class=" relative z-50" aria-labelledby="modal-title" role="dialog" aria-modal="false">
+    
+      <div class="fixed w-full inset-0 bg-[#0D2E4B] backdrop-blur-sm bg-opacity-90 transition-opacity"></div>
+    
+        <div class="fixed w-full inset-0 z-10 overflow-y-auto">
+          <div class="flex w-full min-h-full items-end justify-center p-4  lg:items-center sm:p-0 ">
+          
+            <div class="flex flex-col w-full h-screen pt-5 sm:pt-10 lg:pt-24 text-white gap-4 items-center overflow-y-auto pb-28">
+              <h3 class="flex w-[95%] xl:w-[80%] lg:text-5xl font-bold pb-10">Confirme os Beneficiários do plano</h3>
+              <div class="flex flex-col w-[95%] xl:w-[80%] bg-[#0D6080] hover:bg-[#69C0AC] py-9 p-6 rounded-lg hover:-translate-y-1 hover:scale-110 duration-300 ease-in-out">
+                <div class="flex w-full justify-between">
+                  <h4 class="text-xl">
+                    Titular do plano 
+                  </h4>
+                  <img src="../assets/icons/trash.png" alt="trash">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-4 w-full justify-between text-start pt-10 gap-4 ">
+
+                    <div class="flex flex-col gap-y-2">
+                      <span class="font-extralight">
+                        Nome Completo
+                      </span>
+                      <span class="flex font-semibold">
+                        Jhenifer Diogo dos Santos
+                      </span>
+                    </div>
+                    <div class="flex flex-col text-start">
+                      <span class="font-extralight">
+                        E-mail
+                      </span>
+                      <span class="flex font-semibold">
+                        jheniferdiogo@gmail.com
+                      </span>
+                    </div>
+
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      CPF
+                    </span>
+                    <span class="flex font-semibold">
+                      399.733.376-98
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      Data de Nascimento
+                    </span>
+                    <span class="flex font-semibold">
+                      00/00/0000
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      Número de Telefone
+                    </span>
+                    <span class="flex font-semibold">
+                      (00) 00000-0000
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col w-[95%] xl:w-[80%] bg-[#0D6080] hover:bg-[#69C0AC] py-9 p-6 rounded-lg hover:-translate-y-1 hover:scale-110 duration-300 ease-in-out">
+                <div class="flex w-full justify-between">
+                  <h4 class="text-xl">
+                    Titular do plano 
+                  </h4>
+                  <img src="../assets/icons/trash.png" alt="trash">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-4 w-full justify-between text-start pt-10 gap-4 ">
+
+                    <div class="flex flex-col gap-y-2">
+                      <span class="font-extralight">
+                        Nome Completo
+                      </span>
+                      <span class="flex font-semibold">
+                        Jhenifer Diogo dos Santos
+                      </span>
+                    </div>
+                    <div class="flex flex-col text-start">
+                      <span class="font-extralight">
+                        E-mail
+                      </span>
+                      <span class="flex font-semibold">
+                        jheniferdiogo@gmail.com
+                      </span>
+                    </div>
+
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      CPF
+                    </span>
+                    <span class="flex font-semibold">
+                      399.733.376-98
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      Data de Nascimento
+                    </span>
+                    <span class="flex font-semibold">
+                      00/00/0000
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      Número de Telefone
+                    </span>
+                    <span class="flex font-semibold">
+                      (00) 00000-0000
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col w-[95%] xl:w-[80%] bg-[#0D6080] hover:bg-[#69C0AC] py-9 p-6 rounded-lg hover:-translate-y-1 hover:scale-110 duration-300 ease-in-out">
+                <div class="flex w-full justify-between">
+                  <h4 class="text-xl">
+                    Titular do plano 
+                  </h4>
+                  <img src="../assets/icons/trash.png" alt="trash">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-4 w-full justify-between text-start pt-10 gap-4 ">
+
+                    <div class="flex flex-col gap-y-2">
+                      <span class="font-extralight">
+                        Nome Completo
+                      </span>
+                      <span class="flex font-semibold">
+                        Jhenifer Diogo dos Santos
+                      </span>
+                    </div>
+                    <div class="flex flex-col text-start">
+                      <span class="font-extralight">
+                        E-mail
+                      </span>
+                      <span class="flex font-semibold">
+                        jheniferdiogo@gmail.com
+                      </span>
+                    </div>
+
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      CPF
+                    </span>
+                    <span class="flex font-semibold">
+                      399.733.376-98
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      Data de Nascimento
+                    </span>
+                    <span class="flex font-semibold">
+                      00/00/0000
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-start">
+                    <span class="font-extralight">
+                      Número de Telefone
+                    </span>
+                    <span class="flex font-semibold">
+                      (00) 00000-0000
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-[95%] md:w-[80%] mx-auto justify-between -mt-[122px] sm:-mt-20 items-center backdrop-blur-sm bg-opacity-60 transition-opacity rounded-3xl py-2 sm:p-2">
+            <span class="text-white underline ml-4">
+              Adicionar mais Beneficiário
+            </span>
+            <button onclick="()=>{}" class="flex bg-[#186685] text-white max-w-[300px] py-4 sm:px-12 items-center justify-center rounded-3xl  font-bold  " >
+              Confirmar Benenficiários
+            </button>
+          </div>
+      </div>
+    </div>
+
+
+  
+</body>
+</html>
